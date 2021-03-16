@@ -30,9 +30,9 @@ export default {
               database.collection('orders').get().then(querySnapShot =>{
                 var orders = {"Prawn omelette":0,"Dry Beef Hor Fun":0,"Sambal Kangkung":0,"Pork Fried Rice":0,"Mapo Tofu":0,"Cereal Prawn":0}
                   querySnapShot.forEach(doc =>{
-                      var order = doc.data().quantity
-                      for(let i in order){
-                          orders[i] += order[i]
+                      var orders = doc.data().quantity
+                      for(let i in orders){
+                          orders[i] += orders[i]
                       }
                   })
                   this.datacollection.labels.push(...Object.keys(orders))
